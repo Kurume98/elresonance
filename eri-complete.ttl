@@ -1,0 +1,444 @@
+@prefix eri: <http://elresonance.ai/ontology#> .
+@prefix igbo: <http://elresonance.ai/igbo#> .
+@prefix yoruba: <http://elresonance.ai/yoruba#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Ontology Declaration
+<http://elresonance.ai/ontology#>
+  rdf:type owl:Ontology ;
+  rdfs:label "El Resonance Intelligence Ontology" ;
+  rdfs:comment "Cultural-emotional middleware transforming indigenous vowel systems into queryable knowledge graphs" ;
+  owl:versionInfo "1.0" .
+
+# Classes
+eri:ResonanceField
+  rdf:type owl:Class ;
+  rdfs:label "Resonance Field" ;
+  rdfs:comment "Multi-dimensional emotional-linguistic state derived from vowel analysis" .
+
+eri:Vowel
+  rdf:type owl:Class ;
+  rdfs:label "Vowel" ;
+  rdfs:comment "Phonosemantic unit with energy, direction, and polarity properties" .
+
+eri:ScrollPhase
+  rdf:type owl:Class ;
+  rdfs:label "Scroll Phase" ;
+  rdfs:comment "Cultural reasoning primitive representing state transitions" .
+
+eri:Spectrum
+  rdf:type owl:Class ;
+  rdfs:label "Resonance Spectrum" ;
+  rdfs:comment "Fluid emotional position determined by vowel patterns" .
+
+eri:Utterance
+  rdf:type owl:Class ;
+  rdfs:label "Utterance" ;
+  rdfs:comment "Natural language input with resonance analysis" .
+
+# Properties
+eri:coherence
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain eri:ResonanceField ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "Coherence" ;
+  rdfs:comment "Heart-mind alignment measure (0.0-1.0) via Shannon entropy" .
+
+eri:coherenceTrend
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain eri:ResonanceField ;
+  rdfs:range xsd:string ;
+  rdfs:label "Coherence Trend" ;
+  rdfs:comment "harmonizing, fragmenting, stable, or emerging" .
+
+eri:scrollPhase
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain eri:ResonanceField ;
+  rdfs:range eri:ScrollPhase ;
+  rdfs:label "Scroll Phase" .
+
+eri:spectrum
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain eri:ResonanceField ;
+  rdfs:range eri:Spectrum ;
+  rdfs:label "Resonance Spectrum" .
+
+eri:dominantVowel
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain eri:ResonanceField ;
+  rdfs:range eri:Vowel ;
+  rdfs:label "Dominant Vowel" .
+
+eri:energy
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain eri:Vowel ;
+  rdfs:range xsd:string ;
+  rdfs:label "Energy Type" ;
+  rdfs:comment "expansive, sharp, deep, forward, inward, balanced, grounded, flowing" .
+
+eri:direction
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain eri:Vowel ;
+  rdfs:range xsd:string ;
+  rdfs:label "Direction" ;
+  rdfs:comment "outward, focused, downward, ascending, descending, centered, rooted, continuous" .
+
+eri:polarity
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain eri:Vowel ;
+  rdfs:range xsd:string ;
+  rdfs:label "Polarity" ;
+  rdfs:comment "yang, yin, or neutral" .
+
+eri:text
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain eri:Utterance ;
+  rdfs:range xsd:string ;
+  rdfs:label "Text" .
+
+eri:detectedLanguage
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain eri:Utterance ;
+  rdfs:range xsd:string ;
+  rdfs:label "Detected Language" .
+
+eri:hasResonanceField
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain eri:Utterance ;
+  rdfs:range eri:ResonanceField ;
+  rdfs:label "Has Resonance Field" .
+
+# Igbo 8-Vowel System
+igbo:vowel_a
+  rdf:type eri:Vowel ;
+  rdfs:label "Igbo Vowel 'a'" ;
+  eri:energy "expansive" ;
+  eri:direction "outward" ;
+  eri:polarity "yang" ;
+  rdfs:comment "Openness, courage, expansion - Ike (strength)" .
+
+igbo:vowel_e
+  rdf:type eri:Vowel ;
+  rdfs:label "Igbo Vowel 'e'" ;
+  eri:energy "sharp" ;
+  eri:direction "focused" ;
+  eri:polarity "yang" ;
+  rdfs:comment "Clarity, decisiveness, precision - Uche (wisdom)" .
+
+igbo:vowel_ẹ
+  rdf:type eri:Vowel ;
+  rdfs:label "Igbo Vowel 'ẹ'" ;
+  eri:energy "deep" ;
+  eri:direction "downward" ;
+  eri:polarity "yin" ;
+  rdfs:comment "Depth, patience, grounding - Ndidi (patience)" .
+
+igbo:vowel_i
+  rdf:type eri:Vowel ;
+  rdfs:label "Igbo Vowel 'i'" ;
+  eri:energy "forward" ;
+  eri:direction "ascending" ;
+  eri:polarity "yang" ;
+  rdfs:comment "Progress, movement, ambition - Ọganiru (progress)" .
+
+igbo:vowel_ị
+  rdf:type eri:Vowel ;
+  rdfs:label "Igbo Vowel 'ị'" ;
+  eri:energy "inward" ;
+  eri:direction "descending" ;
+  eri:polarity "yin" ;
+  rdfs:comment "Introspection, spirit, inner knowing - Mmụọ (spirit)" .
+
+igbo:vowel_o
+  rdf:type eri:Vowel ;
+  rdfs:label "Igbo Vowel 'o'" ;
+  eri:energy "balanced" ;
+  eri:direction "centered" ;
+  eri:polarity "neutral" ;
+  rdfs:comment "Unity, connection, harmony - Ịdị n'otu (being together)" .
+
+igbo:vowel_ọ
+  rdf:type eri:Vowel ;
+  rdfs:label "Igbo Vowel 'ọ'" ;
+  eri:energy "grounded" ;
+  eri:direction "rooted" ;
+  eri:polarity "yin" ;
+  rdfs:comment "Foundation, earth, stability - Ala (earth)" .
+
+igbo:vowel_u
+  rdf:type eri:Vowel ;
+  rdfs:label "Igbo Vowel 'u'" ;
+  eri:energy "flowing" ;
+  eri:direction "continuous" ;
+  eri:polarity "yin" ;
+  rdfs:comment "Flow, nurturing, continuity - Mmiri (water)" .
+
+# Yoruba 7-Vowel System
+yoruba:vowel_a
+  rdf:type eri:Vowel ;
+  rdfs:label "Yoruba Vowel 'a'" ;
+  eri:energy "expansive" ;
+  eri:direction "outward" ;
+  eri:polarity "yang" ;
+  rdfs:comment "Openness, space, beginning - Àṣẹ (power)" .
+
+yoruba:vowel_e
+  rdf:type eri:Vowel ;
+  rdfs:label "Yoruba Vowel 'e'" ;
+  eri:energy "sharp" ;
+  eri:direction "focused" ;
+  eri:polarity "yang" ;
+  rdfs:comment "Clarity, precision - Ọgbọ́n (wisdom)" .
+
+yoruba:vowel_ẹ
+  rdf:type eri:Vowel ;
+  rdfs:label "Yoruba Vowel 'ẹ'" ;
+  eri:energy "deep" ;
+  eri:direction "downward" ;
+  eri:polarity "yin" ;
+  rdfs:comment "Depth, grounding - Ìpilẹ̀ (foundation)" .
+
+yoruba:vowel_i
+  rdf:type eri:Vowel ;
+  rdfs:label "Yoruba Vowel 'i'" ;
+  eri:energy "forward" ;
+  eri:direction "ascending" ;
+  eri:polarity "yang" ;
+  rdfs:comment "Progress, ascent - Ìlọsíwájú (moving forward)" .
+
+yoruba:vowel_o
+  rdf:type eri:Vowel ;
+  rdfs:label "Yoruba Vowel 'o'" ;
+  eri:energy "balanced" ;
+  eri:direction "centered" ;
+  eri:polarity "neutral" ;
+  rdfs:comment "Unity, harmony - Ìṣọ̀kan (unity)" .
+
+yoruba:vowel_ọ
+  rdf:type eri:Vowel ;
+  rdfs:label "Yoruba Vowel 'ọ'" ;
+  eri:energy "grounded" ;
+  eri:direction "rooted" ;
+  eri:polarity "yin" ;
+  rdfs:comment "Earth, stability - Ilẹ̀ (earth)" .
+
+yoruba:vowel_u
+  rdf:type eri:Vowel ;
+  rdfs:label "Yoruba Vowel 'u'" ;
+  eri:energy "flowing" ;
+  eri:direction "continuous" ;
+  eri:polarity "yin" ;
+  rdfs:comment "Flow, continuity - Ṣíṣàn (flowing)" .
+
+# Scroll Phases
+igbo:planting
+  rdf:type eri:ScrollPhase ;
+  rdfs:label "Planting (Ịkụ mkpụrụ)" ;
+  eri:coherence "< 0.4" ;
+  rdfs:comment "Beginning state, low coherence, scattered energy" .
+
+igbo:watering
+  rdf:type eri:ScrollPhase ;
+  rdfs:label "Watering (Ịgba mmiri)" ;
+  eri:coherence "> 0.4" ;
+  rdfs:comment "Active growth, yang-dominant energy" .
+
+igbo:pruning
+  rdf:type eri:ScrollPhase ;
+  rdfs:label "Pruning (Ịkwacha)" ;
+  eri:coherence "> 0.6" ;
+  rdfs:comment "Refinement, yin-dominant energy, letting go" .
+
+igbo:harvest
+  rdf:type eri:ScrollPhase ;
+  rdfs:label "Harvest (Ịchịkọta)" ;
+  eri:coherence "> 0.7" ;
+  rdfs:comment "Integration, balanced energy, wholeness" .
+
+# Resonance Spectrums
+eri:expanding
+  rdf:type eri:Spectrum ;
+  rdfs:label "Expanding" ;
+  rdfs:comment "Opening to new possibilities" .
+
+eri:clarifying
+  rdf:type eri:Spectrum ;
+  rdfs:label "Clarifying" ;
+  rdfs:comment "Sharp focus emerging from confusion" .
+
+eri:grounding
+  rdf:type eri:Spectrum ;
+  rdfs:label "Grounding" ;
+  rdfs:comment "Connecting with foundation" .
+
+eri:ascending
+  rdf:type eri:Spectrum ;
+  rdfs:label "Ascending" ;
+  rdfs:comment "Moving toward higher perspective" .
+
+eri:reflecting
+  rdf:type eri:Spectrum ;
+  rdfs:label "Reflecting" ;
+  rdfs:comment "Turning inward for insight" .
+
+eri:connecting
+  rdf:type eri:Spectrum ;
+  rdfs:label "Connecting" ;
+  rdfs:comment "Finding unity and harmony" .
+
+eri:rooting
+  rdf:type eri:Spectrum ;
+  rdfs:label "Rooting" ;
+  rdfs:comment "Establishing deep foundation" .
+
+eri:flowing
+  rdf:type eri:Spectrum ;
+  rdfs:label "Flowing" ;
+  rdfs:comment "Moving with natural rhythm" .
+
+
+# ===== INSTANCE DATA =====
+
+@prefix eri: <http://elresonance.ai/ontology#> .
+@prefix igbo: <http://elresonance.ai/igbo#> .
+@prefix yoruba: <http://elresonance.ai/yoruba#> .
+@prefix ex: <http://elresonance.ai/data#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Sample Instance Data - Demonstrating ERI in Action
+
+# Example 1: Igbo Utterance - Low Coherence (Planting Phase)
+ex:utterance_001
+  a eri:Utterance ;
+  eri:text "Obi m adịghị mma" ;
+  eri:detectedLanguage "igbo" ;
+  eri:hasResonanceField ex:field_001 .
+
+ex:field_001
+  a eri:ResonanceField ;
+  eri:coherence "0.32"^^xsd:decimal ;
+  eri:coherenceTrend "fragmenting" ;
+  eri:scrollPhase igbo:planting ;
+  eri:spectrum eri:reflecting ;
+  eri:dominantVowel igbo:vowel_ị ;
+  eri:spectrumDescription "Turning inward, heart-mind misalignment" .
+
+# Example 2: Yoruba Utterance - High Coherence (Harvest Phase)
+ex:utterance_002
+  a eri:Utterance ;
+  eri:text "Ó dára púpọ̀" ;
+  eri:detectedLanguage "yoruba" ;
+  eri:hasResonanceField ex:field_002 .
+
+ex:field_002
+  a eri:ResonanceField ;
+  eri:coherence "0.82"^^xsd:decimal ;
+  eri:coherenceTrend "harmonizing" ;
+  eri:scrollPhase igbo:harvest ;
+  eri:spectrum eri:expanding ;
+  eri:dominantVowel yoruba:vowel_a ;
+  eri:spectrumDescription "Opening to possibilities, balanced energy" .
+
+# Example 3: English Utterance - Moderate Coherence (Watering Phase)
+ex:utterance_003
+  a eri:Utterance ;
+  eri:text "I feel like I am being watched on my digital field" ;
+  eri:detectedLanguage "english" ;
+  eri:hasResonanceField ex:field_003 .
+
+ex:field_003
+  a eri:ResonanceField ;
+  eri:coherence "0.58"^^xsd:decimal ;
+  eri:coherenceTrend "emerging" ;
+  eri:scrollPhase igbo:watering ;
+  eri:spectrum eri:clarifying ;
+  eri:dominantVowel igbo:vowel_i ;
+  eri:spectrumDescription "Sharp focus emerging from confusion" .
+
+# Example 4: Igbo Utterance - Refinement Phase
+ex:utterance_004
+  a eri:Utterance ;
+  eri:text "Ọ bụ ihe dị mma" ;
+  eri:detectedLanguage "igbo" ;
+  eri:hasResonanceField ex:field_004 .
+
+ex:field_004
+  a eri:ResonanceField ;
+  eri:coherence "0.74"^^xsd:decimal ;
+  eri:coherenceTrend "stable" ;
+  eri:scrollPhase igbo:pruning ;
+  eri:spectrum eri:grounding ;
+  eri:dominantVowel igbo:vowel_ọ ;
+  eri:spectrumDescription "Connecting with foundation, rooted presence" .
+
+# Example 5: Session Tracking - Harmonizing Trend
+ex:session_001
+  a eri:ResonanceSession ;
+  eri:hasUtterance ex:utterance_001, ex:utterance_003, ex:utterance_004 ;
+  eri:sessionTrend "harmonizing" ;
+  eri:coherenceProgression "0.32 → 0.58 → 0.74" ;
+  eri:phaseTransition "planting → watering → pruning" .
+
+# Example 6: Yoruba Emotional Journey
+ex:utterance_005
+  a eri:Utterance ;
+  eri:text "Inú mi kò dùn" ;
+  eri:detectedLanguage "yoruba" ;
+  eri:hasResonanceField ex:field_005 .
+
+ex:field_005
+  a eri:ResonanceField ;
+  eri:coherence "0.28"^^xsd:decimal ;
+  eri:coherenceTrend "fragmenting" ;
+  eri:scrollPhase igbo:planting ;
+  eri:spectrum eri:reflecting ;
+  eri:dominantVowel yoruba:vowel_u ;
+  eri:spectrumDescription "Flow disrupted, seeking harmony" .
+
+# Example 7: Balanced State
+ex:utterance_006
+  a eri:Utterance ;
+  eri:text "Udo dị n'obi m" ;
+  eri:detectedLanguage "igbo" ;
+  eri:hasResonanceField ex:field_006 .
+
+ex:field_006
+  a eri:ResonanceField ;
+  eri:coherence "0.91"^^xsd:decimal ;
+  eri:coherenceTrend "stable" ;
+  eri:scrollPhase igbo:harvest ;
+  eri:spectrum eri:connecting ;
+  eri:dominantVowel igbo:vowel_o ;
+  eri:spectrumDescription "Unity, peace, heart-mind coherence achieved" .
+
+# Example 8: Multi-vowel Frequency Distribution
+ex:utterance_007
+  a eri:Utterance ;
+  eri:text "Ekele dị n'obi m maka ihe niile" ;
+  eri:detectedLanguage "igbo" ;
+  eri:hasResonanceField ex:field_007 .
+
+ex:field_007
+  a eri:ResonanceField ;
+  eri:coherence "0.68"^^xsd:decimal ;
+  eri:coherenceTrend "harmonizing" ;
+  eri:scrollPhase igbo:pruning ;
+  eri:spectrum eri:flowing ;
+  eri:dominantVowel igbo:vowel_e ;
+  eri:vowelFrequency [
+    eri:vowel igbo:vowel_e ;
+    eri:count "6"^^xsd:integer
+  ], [
+    eri:vowel igbo:vowel_i ;
+    eri:count "5"^^xsd:integer
+  ], [
+    eri:vowel igbo:vowel_o ;
+    eri:count "3"^^xsd:integer
+  ], [
+    eri:vowel igbo:vowel_a ;
+    eri:count "2"^^xsd:integer
+  ] ;
+  eri:spectrumDescription "Gratitude flowing through all dimensions" .

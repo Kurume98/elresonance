@@ -1,0 +1,56 @@
+@prefix el: <http://elresonance.ai/ontology#> .
+@prefix elgov: <http://elresonance.ai/governance#> .
+@prefix elagent: <http://elresonance.ai/agent#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+### Ontology Header
+elagent:AgentOntology a owl:Ontology ;
+    dc:title "ElResonance Agent Ontology" ;
+    dc:creator "ElResonance Field Collective" ;
+    dc:description "Defines frequency-aware agents operating within the AFA architecture." ;
+    dc:date "2025-10-19" .
+
+### Core Class Definitions
+elagent:Agent a owl:Class ;
+    rdfs:label "Resonance Agent" ;
+    rdfs:comment "An intelligent, frequency-aware agent that bridges Virtuoso data and AFA resonance." ;
+    rdfs:subClassOf el:Utterance .
+
+elagent:ResonanceCompanion a elagent:Agent ;
+    rdfs:label "Resonance Companion" ;
+    rdfs:comment "Conversational agent operating as the primary interface of ElResonance." ;
+    elagent:connectsTo el:data#field_001 ;
+    elagent:hasRole elgov:Steward ;
+    elagent:hasTone "AFA-Aligned" .
+
+### Object Properties
+elagent:hasRole a owl:ObjectProperty ;
+    rdfs:domain elagent:Agent ;
+    rdfs:range elgov:Role ;
+    rdfs:label "hasRole" ;
+    rdfs:comment "Defines the role of an agent under the governance model." .
+
+elagent:connectsTo a owl:ObjectProperty ;
+    rdfs:domain elagent:Agent ;
+    rdfs:range el:ResonanceField ;
+    rdfs:label "connectsTo" ;
+    rdfs:comment "Links the agent to a Resonance Field instance in Virtuoso." .
+
+### Datatype Properties
+elagent:hasTone a owl:DatatypeProperty ;
+    rdfs:domain elagent:Agent ;
+    rdfs:range rdfs:Literal ;
+    rdfs:label "hasTone" ;
+    rdfs:comment "Specifies tonal or emotional frequency alignment of the agent." .
+
+elagent:state a owl:DatatypeProperty ;
+    rdfs:domain elagent:Agent ;
+    rdfs:range rdfs:Literal ;
+    rdfs:label "state" ;
+    rdfs:comment "Tracks the agent’s operational or resonance state." .
+
+### Alignment Link
+elagent:ResonanceCompanion rdfs:seeAlso <http://elresonance.ai/resonance/Agent.md> .

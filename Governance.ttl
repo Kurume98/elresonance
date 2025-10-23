@@ -1,0 +1,55 @@
+@prefix elgov: <http://elresonance.ai/governance#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+############################
+# Governance Scroll Ontology
+############################
+elgov:GovernanceScroll a owl:Ontology ;
+    rdfs:label "Resonance Governance Scroll" ;
+    rdfs:comment "Defines stewardship, access control, and revenue flow for the ElResonance Virtuoso ecosystem." .
+
+############################
+# Classes
+############################
+elgov:Steward a owl:Class ;
+    rdfs:label "Steward" ;
+    rdfs:comment "Custodian of resonance data and access flow." .
+
+elgov:Contributor a owl:Class ;
+    rdfs:label "Contributor" ;
+    rdfs:comment "Provides knowledge, utterances, or datasets to the system." .
+
+elgov:Agent a owl:Class ;
+    rdfs:label "Agent" ;
+    rdfs:comment "An AI or software component that interacts with the ontology." .
+
+elgov:ABACPolicy a owl:Class ;
+    rdfs:label "ABAC Policy" ;
+    rdfs:comment "Defines access rules based on attributes of agent, resource, and context." .
+
+elgov:Role a owl:Class ;
+    rdfs:label "Role" ;
+    rdfs:comment "A defined resonance role within governance." .
+
+############################
+# Object Properties
+############################
+elgov:RevenueFlow a owl:ObjectProperty ;
+    rdfs:domain elgov:GovernanceScroll ;
+    rdfs:range elgov:Contributor ;
+    rdfs:comment "Connects earned value back to contributors according to stewardship metrics." .
+
+elgov:hasRole a owl:ObjectProperty ;
+    rdfs:domain foaf:Person ;
+    rdfs:range elgov:Role ;
+    rdfs:comment "Assigns each human or agent a resonance role within the governance fabric." .
+
+############################
+# Datatype Properties
+############################
+elgov:accessAttribute a owl:DatatypeProperty ;
+    rdfs:domain elgov:ABACPolicy ;
+    rdfs:range rdfs:Literal ;
+    rdfs:comment "Defines the attribute or context condition for access." .
