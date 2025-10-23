@@ -51,6 +51,3 @@ elagent:state a owl:DatatypeProperty ;
     rdfs:range rdfs:Literal ;
     rdfs:label "state" ;
     rdfs:comment "Tracks the agent’s operational or resonance state." .
-
-### Alignment Link
-elagent:ResonanceCompanion rdfs:seeAlso <http://elresonance.ai/resonance/Agent.md> .
